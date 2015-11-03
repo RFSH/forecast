@@ -1,0 +1,73 @@
+#tab-week {
+  padding: 0.5em;
+  color: white;
+}
+@media (min-width: 990px) {
+  #tab-week {
+    background: #2e343a;
+  }
+}
+#tab-week .day-cards {
+  margin: auto;
+}
+@media (min-width: 990px) {
+  #tab-week .day-cards {
+    width: 840px;
+  }
+}
+#tab-week .day-cards .modal-dialog {
+  color: black;
+}
+#tab-week .day-cards .modal-dialog .modal-body {
+  text-align: center;
+}
+#tab-week .day-cards .modal-dialog .orange {
+  margin-left: 0.2em;
+  color: orange;
+}
+#tab-week .day-cards .day-card {
+  cursor: pointer;
+  padding: 0;
+  display: inline-block;
+  text-align: center;
+  border-radius: 0.4em;
+  margin-left: 15px;
+  margin-bottom: 1em;
+}
+@media (min-width: 990px) {
+  #tab-week .day-cards .day-card {
+    width: 105px;
+  }
+}
+@media (max-width: 900px) {
+  #tab-week .day-cards .day-card {
+    border-radius: 3em;
+  }
+}
+#tab-week .day-cards .day-card h4 {
+  font-size: 1.3em;
+}
+#tab-week .day-cards .day-card h5 {
+  font-size: 1.2em;
+}
+#tab-week .day-cards .day-card.day-card-1 {
+  background: #1579BB;
+}
+#tab-week .day-cards .day-card.day-card-2 {
+  background: #FF091F;
+}
+#tab-week .day-cards .day-card.day-card-3 {
+  background: #F78A34;
+}
+#tab-week .day-cards .day-card.day-card-4 {
+  background: #A4AB22;
+}
+#tab-week .day-cards .day-card.day-card-5 {
+  background: #A365A9;
+}
+#tab-week .day-cards .day-card.day-card-6 {
+  background: #FF6D73;
+}
+#tab-week .day-cards .day-card.day-card-7 {
+  background: #E51369;
+}

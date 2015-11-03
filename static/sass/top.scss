@@ -1,0 +1,49 @@
+.top {
+  h1 {
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+  .search-form {
+    form {
+      -webkit-border-radius: 0.2em;
+      -moz-border-radius: 0.2em;
+      border-radius: 0.2em;
+      margin: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      padding: 1em;
+      .other-parts {
+        margin-top: 1em;
+        .buttons {
+          button {
+            width: 7em;
+          }
+          float: right;
+        }
+        .credits {
+          float: right;
+        }
+      }
+
+      .form-group {
+        input[type=text], select {
+          width: 100%;
+        }
+        padding: 0 0.2em;
+      }
+
+      .error{
+        font-size: 1.1em;
+        color: #b10000;
+        $mywhite : rgba(255,255,255,0.5);
+        //text-shadow:
+        //-.4px -.4px 0 $mywhite,
+        //.4px -.4px 0 $mywhite,
+        //-.4px .4px 0 $mywhite,
+        //.4px .4px 0 $mywhite;
+        //-webkit-text-stroke: 1px $mywhite;
+      }
+    }
+  }
+
+}

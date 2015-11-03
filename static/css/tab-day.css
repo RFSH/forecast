@@ -1,0 +1,30 @@
+#tab-day {
+  background: white;
+}
+#tab-day .days-table {
+  margin: 0;
+  text-align: center;
+}
+@media (min-width: 900px) {
+  #tab-day .days-table .tab-day-row-collapse .collapse:not(.in) {
+    display: none;
+  }
+}
+#tab-day .days-table thead {
+  background: #156dae;
+  color: white;
+}
+#tab-day .days-table thead th {
+  text-align: center;
+}
+#tab-day .days-table .details-table {
+  background: transparent;
+}
+#tab-day .days-table .details-table thead {
+  background: white;
+  color: black;
+}
+#tab-day .days-table .details-table tbody {
+  background-color: transparent;
+  color: black;
+}

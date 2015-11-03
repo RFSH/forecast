@@ -1,0 +1,379 @@
+body {
+  font-size: 13px;
+  background: url("../images/bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+::selection {
+  background-color: #b3adff;
+  color: rgba(251, 251, 251, 0.87);
+}
+
+::-moz-focus-inner, :active, :focus {
+  outline: none;
+  border: 0;
+  -moz-outline-style: none;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+.hr-divider {
+  margin: 1.5rem 0;
+  color: darkgray;
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #c3c3c3, #ccc);
+}
+
+.red {
+  color: #c0392b;
+}
+
+#result-box {
+  display: none;
+}
+
+.collapsing {
+  -webkit-transition: height .35s ease !important;
+  -o-transition: height .35s ease !important;
+  -moz-transition: height .35s ease !important;
+  transition: height .35s ease !important;
+}
+
+.top h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.top .search-form form {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  padding: 1em;
+}
+.top .search-form form .other-parts {
+  margin-top: 1em;
+}
+.top .search-form form .other-parts .buttons {
+  float: right;
+}
+.top .search-form form .other-parts .buttons button {
+  width: 7em;
+}
+.top .search-form form .other-parts .credits {
+  float: right;
+}
+.top .search-form form .form-group {
+  padding: 0 0.2em;
+}
+.top .search-form form .form-group input[type=text], .top .search-form form .form-group select {
+  width: 100%;
+}
+.top .search-form form .error {
+  font-size: 1.1em;
+  color: #b10000;
+}
+
+.content .btn-fb {
+  color: #fff;
+  background-color: #3b5998;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+.content .btn-fb:hover {
+  color: #fff;
+  background-color: #2d4373;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+.content .nav-tabs li.active a {
+  color: white;
+  background: #156dae;
+}
+.content .nav-tabs li a {
+  color: #156dae;
+  background: white;
+}
+.content .tab-pane {
+  background: transparent;
+  margin: 0;
+}
+.content .tab-content {
+  margin-bottom: 1em;
+}
+.content #tab-now {
+  background: white;
+}
+.content #tab-now .now-current .detail-row {
+  padding: 0.5em;
+  background: #f17d7e;
+}
+.content #tab-now .now-current .detail-row .image {
+  text-align: center;
+}
+.content #tab-now .now-current .detail-row .image img {
+  margin: 0 auto;
+}
+.content #tab-now .now-current .detail-row .details {
+  text-align: center;
+  position: relative;
+}
+.content #tab-now .now-current .detail-row .details h5, .content #tab-now .now-current .detail-row .details h1 {
+  color: white;
+  font-weight: bold;
+}
+.content #tab-now .now-current .detail-row .details h1 .weather {
+  font-size: 3em;
+}
+.content #tab-now .now-current .detail-row .details h1 .weather + .temp-unit {
+  vertical-align: top;
+}
+.content #tab-now .now-current .detail-row .details h1 .weather-unit {
+  font-size: 1em;
+  font-weight: normal;
+  vertical-align: 1.4em;
+}
+.content #tab-now .now-current .detail-row .details .low-high {
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  font-size: 1.2em;
+}
+.content #tab-now .now-current .detail-row .blue {
+  color: blue;
+}
+.content #tab-now .now-current .detail-row .green {
+  color: green;
+}
+.content #tab-now .now-current .detail-row .btn-fb {
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+.content #tab-now .now-current .table {
+  margin: 0;
+}
+.content #tab-now .now-current .table tr:not(.danger) {
+  background: #fff;
+}
+.content #now-map img {
+  max-width: none !important;
+}
+
+#load-spinner {
+  display: none;
+  text-align: center;
+  color: white;
+}
+
+@-moz-keyframes timer-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes timer-loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes timer-loader {
+  0% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* :not(:required) hides this rule from IE9 and below */
+.timer-loader:not(:required) {
+  border: 6px solid white;
+  -moz-border-radius: 24px;
+  -webkit-border-radius: 24px;
+  border-radius: 24px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  text-indent: -9999px;
+  width: 48px;
+  height: 48px;
+}
+
+.timer-loader:not(:required)::before {
+  -moz-animation: timer-loader 1250ms infinite linear;
+  -webkit-animation: timer-loader 1250ms infinite linear;
+  animation: timer-loader 1250ms infinite linear;
+  -moz-transform-origin: 3px 3px;
+  -ms-transform-origin: 3px 3px;
+  -webkit-transform-origin: 3px 3px;
+  transform-origin: 3px 3px;
+  background: white;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 19.2px;
+  left: 15px;
+  top: 15px;
+}
+
+.timer-loader:not(:required)::after {
+  -moz-animation: timer-loader 15000ms infinite linear;
+  -webkit-animation: timer-loader 15000ms infinite linear;
+  animation: timer-loader 15000ms infinite linear;
+  -moz-transform-origin: 3px 3px;
+  -ms-transform-origin: 3px 3px;
+  -webkit-transform-origin: 3px 3px;
+  transform-origin: 3px 3px;
+  background: white;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 16px;
+  left: 15px;
+  top: 15px;
+}
+
+#tab-day {
+  background: white;
+}
+#tab-day .days-table {
+  margin: 0;
+  text-align: center;
+}
+@media (min-width: 900px) {
+  #tab-day .days-table .tab-day-row-collapse .collapse:not(.in) {
+    display: none;
+  }
+}
+#tab-day .days-table thead {
+  background: #156dae;
+  color: white;
+}
+#tab-day .days-table thead th {
+  text-align: center;
+}
+#tab-day .days-table .details-table {
+  background: transparent;
+}
+#tab-day .days-table .details-table thead {
+  background: white;
+  color: black;
+}
+#tab-day .days-table .details-table tbody {
+  background-color: transparent;
+  color: black;
+}
+
+#tab-week {
+  padding: 0.5em;
+  color: white;
+}
+@media (min-width: 990px) {
+  #tab-week {
+    background: #2e343a;
+  }
+}
+#tab-week .day-cards {
+  margin: auto;
+}
+@media (min-width: 990px) {
+  #tab-week .day-cards {
+    width: 840px;
+  }
+}
+#tab-week .day-cards .modal-dialog {
+  color: black;
+}
+#tab-week .day-cards .modal-dialog .modal-body {
+  text-align: center;
+}
+#tab-week .day-cards .modal-dialog .orange {
+  margin-left: 0.2em;
+  color: orange;
+}
+#tab-week .day-cards .day-card {
+  cursor: pointer;
+  padding: 0;
+  display: inline-block;
+  text-align: center;
+  border-radius: 0.4em;
+  margin-left: 15px;
+  margin-bottom: 1em;
+}
+@media (min-width: 990px) {
+  #tab-week .day-cards .day-card {
+    width: 105px;
+  }
+}
+@media (max-width: 900px) {
+  #tab-week .day-cards .day-card {
+    border-radius: 3em;
+  }
+}
+#tab-week .day-cards .day-card h4 {
+  font-size: 1.3em;
+}
+#tab-week .day-cards .day-card h5 {
+  font-size: 1.2em;
+}
+#tab-week .day-cards .day-card.day-card-1 {
+  background: #1579BB;
+}
+#tab-week .day-cards .day-card.day-card-2 {
+  background: #FF091F;
+}
+#tab-week .day-cards .day-card.day-card-3 {
+  background: #F78A34;
+}
+#tab-week .day-cards .day-card.day-card-4 {
+  background: #A4AB22;
+}
+#tab-week .day-cards .day-card.day-card-5 {
+  background: #A365A9;
+}
+#tab-week .day-cards .day-card.day-card-6 {
+  background: #FF6D73;
+}
+#tab-week .day-cards .day-card.day-card-7 {
+  background: #E51369;
+}

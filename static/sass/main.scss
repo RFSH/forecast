@@ -1,0 +1,65 @@
+$red: #c0392b;
+
+body {
+  font-size: 13px;
+  background: url('../images/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+::selection {
+  background-color: #b3adff;
+  color: rgba(251, 251, 251, 0.87);
+}
+::-moz-focus-inner, :active, :focus {
+  outline:none;
+  border:0;
+  -moz-outline-style: none;
+}
+
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+.hr-divider {
+  margin: 1.5rem 0;
+  color: darkgray;
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #c3c3c3, #ccc);
+}
+
+.red {
+  color: $red;
+}
+
+.content{
+  //display: none;
+}
+
+#result-box{
+  display: none;
+}
+
+.collapsing {
+  -webkit-transition: height .35s ease !important;
+  -o-transition: height .35s ease !important;
+  -moz-transition: height .35s ease !important;
+  transition: height .35s ease !important;
+}
+
+
+@import "top";
+@import "content";
+@import "spinner";
+@import "tab-day";
+@import "tab-week";

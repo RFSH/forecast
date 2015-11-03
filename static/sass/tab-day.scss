@@ -1,0 +1,34 @@
+$blue: rgb(21, 109, 174);
+
+#tab-day {
+  background: white;
+  .days-table {
+    @media (min-width: 900px) {
+      .tab-day-row-collapse .collapse:not(.in){
+        display: none;
+      }
+    }
+    margin: 0;
+    text-align: center;
+    thead {
+      background: $blue;
+      color: white;
+      th {
+        text-align: center;
+      }
+    }
+    .details-table {
+      background: transparent;
+      thead {
+        background: white;
+        color: black;
+      }
+      tbody {
+        background-color: transparent;
+        color: black;
+      }
+    }
+
+  }
+
+}

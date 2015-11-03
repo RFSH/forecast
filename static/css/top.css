@@ -1,0 +1,35 @@
+.top h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.top .search-form form {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  padding: 1em;
+}
+.top .search-form form .other-parts {
+  margin-top: 1em;
+}
+.top .search-form form .other-parts .buttons {
+  float: right;
+}
+.top .search-form form .other-parts .buttons button {
+  width: 7em;
+}
+.top .search-form form .other-parts .credits {
+  float: right;
+}
+.top .search-form form .form-group {
+  padding: 0 0.2em;
+}
+.top .search-form form .form-group input[type=text], .top .search-form form .form-group select {
+  width: 100%;
+}
+.top .search-form form .error {
+  font-size: 1.1em;
+  color: #b10000;
+}

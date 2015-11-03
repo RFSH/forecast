@@ -1,0 +1,97 @@
+$blue: rgb(21,109,174);
+
+.content {
+  .btn-fb {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: rgba(0, 0, 0, 0.2);
+    &:hover {
+      color: #fff;
+      background-color: #2d4373;
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .nav-tabs {
+    li {
+      &.active a {
+        color: white;
+        background: $blue;
+      }
+      a {
+        color: $blue;
+        background: white;
+      }
+    }
+  }
+  .tab-pane {
+    background: transparent;
+    margin: 0;
+  }
+  .tab-content{margin-bottom: 1em;}
+  #tab-now {
+    background: white;
+    .now-current {
+      .detail-row {
+        padding: 0.5em;
+        background: rgb(241, 125, 126);
+        .image {
+          text-align: center;
+          img {
+            margin: 0 auto;
+          }
+        }
+        .details {
+          text-align: center;
+          position: relative;
+          h5, h1 {
+            color: white;
+            font-weight: bold;
+          }
+          h1 {
+            .weather {
+              font-size: 3em;
+              + .temp-unit{
+                vertical-align: top;
+              }
+            }
+            .weather-unit {
+              font-size: 1em;
+              font-weight: normal;
+              vertical-align: 1.4em;
+            }
+          }
+          .low-high {
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            font-size: 1.2em;
+          }
+        }
+        .blue {
+          color: blue;
+        }
+        .green {
+          color: green;
+        }
+        .btn-fb {
+          border-radius: 4px;
+          cursor: pointer;
+          float: right;
+        }
+
+      }
+      .table{margin: 0;}
+      .table tr:not(.danger) {
+        background: #fff;
+      }
+
+    }
+
+  }
+
+  #now-map {
+    img { max-width:none !important;}
+  }
+
+}
