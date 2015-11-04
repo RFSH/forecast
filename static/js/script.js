@@ -35,9 +35,9 @@ function addFBPost() {
         })
     }, function (response) {
         if (response && !response.error_message) {
-            alert('Posted Successfully');
+            show_message("", 'Posted Successfully', "success");
         } else {
-            alert('Not Posted');
+            show_message("", 'Not Posted', "warning");
         }
     });
 }
@@ -57,10 +57,12 @@ jQuery(function () {
                 data: $(form).serialize(),
                 dataType: "json",
                 beforeSend: function () {
+                    $(".buttons button").attr("disabled", "disabled");
                     $("#result-box").hide();
                     $("#load-spinner").show();
                 },
                 success: function (data) {
+                    $(".buttons button").removeAttr("disabled");
                     $("#load-spinner").hide();
                     if (data['op_status'] == 'success') {
                         tdata = data;
@@ -80,8 +82,9 @@ jQuery(function () {
 
                 }
                 , error: function (err) {
+                    $(".buttons button").removeAttr("disabled");
                     $("#load-spinner").hide();
-                    show_message("Error", "there is an error", "error");
+                    show_message("Oops..", "There was a problem with the connection, Try Again.", "error");
                 }
             });
         },
@@ -150,15 +153,15 @@ function addMap(lon, lat) {
 
 }
 
-PNotify.prototype.options.styling = "bootstrap3";
 
 function show_message(title, content, type) {
-    $(function () {
-        new PNotify({
-            title: title,
-            text: content
-        });
-    });
+    alert(content);
+    //$(function () {
+    //    new PNotify({
+    //        title: title,
+    //        text: content
+    //    });
+    //});
 }
 
 /*

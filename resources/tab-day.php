@@ -1,4 +1,4 @@
-<table class="table days-table">
+<table class="table days-table col-xs-12 col-sm-12 col-lg-12 col-md-12">
     <thead>
     <tr>
         <th>Time</th>

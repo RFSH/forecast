@@ -2,6 +2,7 @@
   background: white;
 }
 #tab-day .days-table {
+  background: white;
   margin: 0;
   text-align: center;
 }
@@ -9,6 +10,9 @@
   #tab-day .days-table .tab-day-row-collapse .collapse:not(.in) {
     display: none;
   }
+}
+#tab-day .days-table .tab-day-row-collapse td {
+  padding: 0;
 }
 #tab-day .days-table thead {
   background: #156dae;

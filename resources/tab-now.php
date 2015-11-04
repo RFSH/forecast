@@ -16,7 +16,7 @@
             </h1>
 
             <img onclick="addFBPost();" width="40" height="40" class="btn-fb"
-                 src='<?php echo "$imagesPath/fb_icon" ?>'/>
+                 src='<?php echo "$imagesPath/fb_icon.png" ?>'/>
 
             <div class="low-high">
                                     <span class="blue">L:
@@ -101,5 +101,5 @@
     </div>
 </div>
 <div class="now-clouds col-md-6 col-xs-12" id="now-map">
-
+    <!-- TODO add the fucking map -->
 </div>

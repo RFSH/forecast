@@ -16,7 +16,7 @@
         margin-top: 1em;
         .buttons {
           button {
-            width: 7em;
+            width: 6.8em;
           }
           float: right;
         }
@@ -26,16 +26,20 @@
       }
 
       .form-group {
+        .radio-inline {
+          margin-left: 0;
+          margin-right: 10px;
+        }
         input[type=text], select {
           width: 100%;
         }
         padding: 0 0.2em;
       }
 
-      .error{
+      .error {
         font-size: 1.1em;
         color: #b10000;
-        $mywhite : rgba(255,255,255,0.5);
+        $mywhite: rgba(255, 255, 255, 0.5);
         //text-shadow:
         //-.4px -.4px 0 $mywhite,
         //.4px -.4px 0 $mywhite,

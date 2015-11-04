@@ -18,13 +18,17 @@
   float: right;
 }
 .top .search-form form .other-parts .buttons button {
-  width: 7em;
+  width: 6.8em;
 }
 .top .search-form form .other-parts .credits {
   float: right;
 }
 .top .search-form form .form-group {
   padding: 0 0.2em;
+}
+.top .search-form form .form-group .radio-inline {
+  margin-left: 0;
+  margin-right: 10px;
 }
 .top .search-form form .form-group input[type=text], .top .search-form form .form-group select {
   width: 100%;

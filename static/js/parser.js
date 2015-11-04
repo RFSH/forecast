@@ -12,7 +12,7 @@ function processJSON(data) {
     $(".now-current .low-temp").html(parseInt(data['daily']['data'][0]['temperatureMin']));
     $(".now-current .high-temp").html(parseInt(data['daily']['data'][0]['temperatureMax']));
 
-    // TODO fb params:
+    // fb params:
     fbParams['og:title'] = "Current Weather in " + data['thisCity'] + ", " + data['thisState'];
     fbParams['og:description'] = data['currently']['summary'] + ", " + parseInt(data['currently']['temperature']) + "\xB0" + (data['thisUnit'] == "us" ? "F" : "C");
     fbParams['og:image'] = "http://cs-server.usc.edu:45678/hw/hw8/images/" + getIcon(data['currently']["icon"]);
@@ -49,7 +49,7 @@ function processJSON(data) {
     var weekTab = "";
     for (var j = 1; j < 8; j++) {
         try {
-            weekTab += createDayCard(data['daily']['data'][j], j);
+            weekTab += createDayCard(data['daily']['data'][j], j, data['thisCity']);
         } catch (e) {
         }
     }
@@ -139,14 +139,15 @@ function createHourRow(data, index) {
     row += '<i class="glyphicon glyphicon-plus"></i></td></tr>';
 
     row += '<tr class="tab-day-row-collapse"><td colspan="5">';
-    row += '<div id="tab-day-details-' + index + '" class="collapse well table-responsive">';
+    row += '<div id="tab-day-details-' + index + '" class="collapse well"><div class="table-responsive">';
     row += '<table class="table details-table"><thead><tr><th>Wind</th><th>Humidity</th>';
     row += '<th>Visibility</th><th>Pressure</th></tr></thead><tbody><tr>';
     row += '<td>' + (data['windSpeed'] != undefined ? data['windSpeed'] : "N/A") + "<span class='speed-unit'></span></td>";
     row += '<td>' + (data['humidity'] != undefined ? parseInt(parseFloat(data['humidity']) * 100) : "N/A") + "%</td>";
     row += '<td>' + (data['visibility'] != undefined ? data['visibility'] : "N/A") + "<span class='distance-unit'></span></td>";
-    row += '<td>' + (data['pressure'] != undefined ? data['pressure'] : "N/A") + "<span class='pressure-unit'></span></td>";
-    row += "</tr></tbody></table></div></td></tr>";
+    //TODO remove this junk string (8724897878998798789):
+    row += '<td>' + (data['pressure'] != undefined ? data['pressure']+"8724897878998798789" : "N/A") + "<span class='pressure-unit'></span></td>";
+    row += "</tr></tbody></table></div></div></td></tr>";
 
     return row;
 }
@@ -157,7 +158,7 @@ function createDayCard(data, index, city) {
     var date = (data['time'] ? moment(new Date(data['time'] * 1000)).format("MMM D") : "N/A");
     var day = (data['time'] ? moment(new Date(data['time'] * 1000)).format("dddd") : "N/A");
 
-    var card = '<div class="col-lg-1 col-md-1 cold-xs-11 day-card day-card-' + index + '" data-toggle="modal" ';
+    var card = '<div class="col-lg-1 col-md-1 col-xs-11 col-sm-11 day-card day-card-' + index + '" data-toggle="modal" ';
     card += 'data-target="#show-details-modal-' + index + '" >';
     card += "<h4 class='day'>" + day + "</h4>";
     card += "<h4 class='date'>" + date + "</h4>";

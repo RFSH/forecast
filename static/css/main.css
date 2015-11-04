@@ -74,13 +74,17 @@ body {
   float: right;
 }
 .top .search-form form .other-parts .buttons button {
-  width: 7em;
+  width: 6.8em;
 }
 .top .search-form form .other-parts .credits {
   float: right;
 }
 .top .search-form form .form-group {
   padding: 0 0.2em;
+}
+.top .search-form form .form-group .radio-inline {
+  margin-left: 0;
+  margin-right: 10px;
 }
 .top .search-form form .form-group input[type=text], .top .search-form form .form-group select {
   width: 100%;
@@ -148,9 +152,7 @@ body {
   vertical-align: 1.4em;
 }
 .content #tab-now .now-current .detail-row .details .low-high {
-  position: absolute;
-  bottom: 0;
-  left: 20%;
+  margin-top: 2em;
   font-size: 1.2em;
 }
 .content #tab-now .now-current .detail-row .blue {
@@ -277,6 +279,7 @@ body {
   background: white;
 }
 #tab-day .days-table {
+  background: white;
   margin: 0;
   text-align: center;
 }
@@ -284,6 +287,9 @@ body {
   #tab-day .days-table .tab-day-row-collapse .collapse:not(.in) {
     display: none;
   }
+}
+#tab-day .days-table .tab-day-row-collapse td {
+  padding: 0;
 }
 #tab-day .days-table thead {
   background: #156dae;

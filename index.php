@@ -49,9 +49,8 @@ pressure-unit
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
         <script src="static/js/moment-timezone.min.js"></script>
 
-        <script src="static/js/pnotify.custom.min.js"></script>
-
-<!--        <script src="http://openlayers.org/api/OpenLayers.js"></script>-->
+        <!-- TODO add openlayer -->
+        <!--        <script src="http://openlayers.org/api/OpenLayers.js"></script>-->
 
         <script src="static/js/parser.js"></script>
         <script src="static/js/script.js"></script>
@@ -62,27 +61,37 @@ pressure-unit
         <div class="top">
             <h1>Forecast Search</h1>
 
-            <div class="search-form contianer-fluid">
+            <div class="search-form container-fluid">
                 <form class="form-inline row" role="form" id="search-form">
                     <div class="form-group  col-md-3">
                         <label for="address" class="control-label">Street Address:<i class="red">*</i></label>
-                        <input type="text" class="form-control" id="address" name="address"
-                               placeholder="Enter street address"/>
+
+                        <div>
+                            <input type="text" class="form-control" id="address" name="address"
+                                   placeholder="Enter street address"/>
+                        </div>
                     </div>
                     <div class="form-group  col-md-2">
                         <label for="city" class="control-label">City:<i class="red">*</i></label>
-                        <input type="text" class="form-control" id="city" name="city" placeholder="Enter the city name">
+
+                        <div>
+                            <input type="text" class="form-control" id="city" name="city"
+                                   placeholder="Enter the city name">
+                        </div>
                     </div>
                     <div class="form-group  col-md-2">
                         <label for="state" class="control-label">State:<i class="red">*</i></label>
-                        <select class="form-control" name="state" id="state">
-                            <option value="">Select your state...</option>
-                            <?php
-                            foreach ($states as $abv => $complete) {
-                                echo "<option value='$abv'>$complete</option>";
-                            }
-                            ?>
-                        </select>
+
+                        <div>
+                            <select class="form-control" name="state" id="state">
+                                <option value="">Select your state...</option>
+                                <?php
+                                foreach ($states as $abv => $complete) {
+                                    echo "<option value='$abv'>$complete</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group  col-md-2">
                         <label class="control-label">Degree:<i class="red">*</i></label>
@@ -142,7 +151,7 @@ pressure-unit
                 <div role="tabpanel" class="tab-pane active row" id="tab-now">
                     <?php include "resources/tab-now.php" ?>
                 </div>
-                <div role="tabpanel" class="tab-pane " id="tab-day">
+                <div role="tabpanel" class="tab-pane row" id="tab-day">
                     <?php include "resources/tab-day.php" ?>
                 </div>
                 <div role="tabpanel" class="tab-pane row" id="tab-week">
