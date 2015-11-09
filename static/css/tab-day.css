@@ -11,8 +11,17 @@
     display: none;
   }
 }
+#tab-day .days-table .tab-day-row-collapse .well {
+  border-radius: 0;
+  margin-bottom: 0;
+}
 #tab-day .days-table .tab-day-row-collapse td {
-  padding: 0;
+  padding: 10px 0;
+}
+@media (min-width: 900px) {
+  #tab-day .days-table .tab-day-row-collapse td {
+    padding: 0;
+  }
 }
 #tab-day .days-table thead {
   background: #156dae;

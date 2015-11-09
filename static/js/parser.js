@@ -2,30 +2,8 @@ var imagesSRC = "static/images/";
 
 function processJSON(data) {
 
-    // now tab:
-    $(".now-current .image img").attr('src', imagesSRC + getIcon(data['currently']['icon']))
-        .attr('alt', data['currently']['summary'])
-        .attr('title', data['currently']['summary']);
-    $(".now-current .summary").html(data['currently']['summary']);
-    $(".now-current .city-name").html(data['thisCity'] + ", " + data['thisState']);
-    $(".now-current h1 .weather").html(parseInt(data['currently']['temperature']));
-    $(".now-current .low-temp").html(parseInt(data['daily']['data'][0]['temperatureMin']));
-    $(".now-current .high-temp").html(parseInt(data['daily']['data'][0]['temperatureMax']));
-
-    // fb params:
-    fbParams['og:title'] = "Current Weather in " + data['thisCity'] + ", " + data['thisState'];
-    fbParams['og:description'] = data['currently']['summary'] + ", " + parseInt(data['currently']['temperature']) + "\xB0" + (data['thisUnit'] == "us" ? "F" : "C");
-    fbParams['og:image'] = "http://cs-server.usc.edu:45678/hw/hw8/images/" + getIcon(data['currently']["icon"]);
-
-    $(".now-current .now-precipitation").html(findPrecipitation(parseFloat(data['currently']['precipIntensity']), data['thisUnit']));
-    $(".now-current .now-rainchance span").html(parseInt(data["currently"]["precipProbability"]) * 100);
-    $(".now-current .now-wind .num").html(parseInt(data["currently"]["windSpeed"]));
-    $(".now-current .now-dew .num").html(parseInt(data["currently"]["dewPoint"]));
-    $(".now-current .now-visibility .num").html(parseInt(data["currently"]["visibility"]));
-    $(".now-current .now-humidity span").html(parseInt(data["currently"]["humidity"]));
-    $(".now-current .now-sunrise").html(moment(new Date(data['daily']['data'][0]['sunriseTime'] * 1000)).format("hh:mm A"));
-    $(".now-current .now-sunset").html(moment(new Date(data['daily']['data'][0]['sunsetTime'] * 1000)).format("hh:mm A"));
-
+    // now tab
+    putNowTabValues(data);
 
     // day tab
     var dayTab = "";
@@ -34,6 +12,7 @@ function processJSON(data) {
             dayTab += createHourRow(data['hourly']['data'][i], i, data['thisCity']);
         } catch (e) {
         }
+
     }
     if (dayTab == "") {
         dayTab += "<tr><td colspan='5'>" +
@@ -61,6 +40,7 @@ function processJSON(data) {
     $(".day-cards").html(weekTab);
 
     correctUnits(data['thisUnit']);
+
 }
 
 function getIcon(name) {
@@ -122,6 +102,34 @@ function findPrecipitation(pre, unit) {
 
 }
 
+function putNowTabValues(data) {
+    $(".now-current .image img").attr('src', imagesSRC + getIcon(data['currently']['icon']))
+        .attr('alt', data['currently']['summary'])
+        .attr('title', data['currently']['summary']);
+    $(".now-current .summary").html(data['currently']['summary']);
+    $(".now-current .city-name").html(data['thisCity'] + ", " + data['thisState']);
+    $(".now-current h1 .weather").html(parseInt(data['currently']['temperature']));
+    $(".now-current .low-temp").html(parseInt(data['daily']['data'][0]['temperatureMin']));
+    $(".now-current .high-temp").html(parseInt(data['daily']['data'][0]['temperatureMax']));
+
+    // fb params:
+    fbOk = true;
+    fbParams['og:title'] = "Current Weather in " + data['thisCity'] + ", " + data['thisState'];
+    fbParams['og:description'] = data['currently']['summary'] + ", " + parseInt(data['currently']['temperature']) + "\xB0" + (data['thisUnit'] == "us" ? "F" : "C");
+    fbParams['og:image'] = "http://cs-server.usc.edu:45678/hw/hw8/images/" + getIcon(data['currently']["icon"]);
+
+    $(".now-current .now-precipitation").html(findPrecipitation(parseFloat(data['currently']['precipIntensity']), data['thisUnit']));
+    $(".now-current .now-rainchance span").html(parseInt(data["currently"]["precipProbability"]) * 100);
+    $(".now-current .now-wind .num").html(parseInt(data["currently"]["windSpeed"]));
+    $(".now-current .now-dew .num").html(parseInt(data["currently"]["dewPoint"]));
+    $(".now-current .now-visibility .num").html(parseInt(data["currently"]["visibility"]));
+    $(".now-current .now-humidity span").html(parseInt(data["currently"]["humidity"]));
+    $(".now-current .now-sunrise").html(moment(new Date(data['daily']['data'][0]['sunriseTime'] * 1000)).format("hh:mm A"));
+    $(".now-current .now-sunset").html(moment(new Date(data['daily']['data'][0]['sunsetTime'] * 1000)).format("hh:mm A"));
+
+
+}
+
 function createHourRow(data, index) {
     var row = "<tr>";
     row += "<td>" + (data['time'] != undefined ? moment(new Date(data['time'] * 1000)).format("hh:mm A") : "N/A") + "</td>";
@@ -145,13 +153,11 @@ function createHourRow(data, index) {
     row += '<td>' + (data['windSpeed'] != undefined ? data['windSpeed'] : "N/A") + "<span class='speed-unit'></span></td>";
     row += '<td>' + (data['humidity'] != undefined ? parseInt(parseFloat(data['humidity']) * 100) : "N/A") + "%</td>";
     row += '<td>' + (data['visibility'] != undefined ? data['visibility'] : "N/A") + "<span class='distance-unit'></span></td>";
-    //TODO remove this junk string (8724897878998798789):
-    row += '<td>' + (data['pressure'] != undefined ? data['pressure']+"8724897878998798789" : "N/A") + "<span class='pressure-unit'></span></td>";
+    row += '<td>' + (data['pressure'] != undefined ? data['pressure'] : "N/A") + "<span class='pressure-unit'></span></td>";
     row += "</tr></tbody></table></div></div></td></tr>";
 
     return row;
 }
-
 
 function createDayCard(data, index, city) {
 

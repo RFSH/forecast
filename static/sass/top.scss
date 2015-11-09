@@ -17,6 +17,9 @@
         .buttons {
           button {
             width: 6.8em;
+            @media (max-width: 1200px) and (min-width: 900px) {
+              width: 6.69em;
+            }
           }
           float: right;
         }

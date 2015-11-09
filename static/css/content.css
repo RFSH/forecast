@@ -76,6 +76,9 @@
 .content #tab-now .now-current .table tr:not(.danger) {
   background: #fff;
 }
+.content #tab-now .now-clouds {
+  padding: 1px;
+}
 .content #now-map img {
   max-width: none !important;
 }

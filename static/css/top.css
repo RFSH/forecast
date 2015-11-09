@@ -20,6 +20,11 @@
 .top .search-form form .other-parts .buttons button {
   width: 6.8em;
 }
+@media (max-width: 1200px) and (min-width: 900px) {
+  .top .search-form form .other-parts .buttons button {
+    width: 6.69em;
+  }
+}
 .top .search-form form .other-parts .credits {
   float: right;
 }
