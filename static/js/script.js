@@ -89,6 +89,7 @@ jQuery(function () {
 
     validator = $("#search-form").validate({
         submitHandler: function (form) {
+            $('a[href="#tab-now"]').tab('show');
             $.ajax({
                 type: "get",
                 url: "forecast.php",
