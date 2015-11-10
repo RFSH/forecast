@@ -1,7 +1,8 @@
 // ----------------------- Map ----------------------------
 var map;
 function addMap(lat, lon) {
-    //Center of map
+    $("#now-map").html("");
+
     var center = new OpenLayers.LonLat(lon, lat);
 
     var coor_from = new OpenLayers.Projection("EPSG:4326");
@@ -9,7 +10,6 @@ function addMap(lat, lon) {
     center.transform(coor_from, coor_to);
 
     map = new OpenLayers.Map("now-map", {numZoomLevels: 2});
-    // Create OSM overlays
     var mapnik = new OpenLayers.Layer.OSM();
 
     var layer_cloud = new OpenLayers.Layer.XYZ(
@@ -44,7 +44,14 @@ function changeMapCenter(lat, lon) {
 }
 
 // ----------------------- FB ----------------------------
-var fbParams = {'og:url': "http://forecast.io"};
+var fbParams = {
+    method: "feed",
+    caption: "WEATHER INFORMATION FROM FORECAST.IO",
+    name: "",
+    link: "http://forecast.io",
+    description: "",
+    message: ""
+};
 var fbOk = false;
 window.fbAsyncInit = function () {
     FB.init({
@@ -64,16 +71,9 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 function addFBPost() {
+    console.log(fbParams);
     if (fbOk) {
-        FB.ui({
-            method: 'share_open_graph',
-            action_type: 'og.shares',
-            action_properties: JSON.stringify({
-                object: fbParams
-            })
-        }, function (response) {
-            Res = response;
-            console.log(response, response == true);
+        FB.ui(fbParams, function (response) {
             if (response != undefined && response != null && !response.error_message) {
                 show_message("", 'Posted Successfully', "success");
             } else {
@@ -111,7 +111,7 @@ jQuery(function () {
 
                         processJSON(data);
 
-                        changeMapCenter(parseFloat(data['latitude']), parseFloat(data['longitude']));
+                        addMap(parseFloat(data['latitude']), parseFloat(data['longitude']));
 
                     } else {
                         show_message("Error", data['message'], "error");
@@ -145,7 +145,7 @@ jQuery(function () {
     $(".now-clouds").css('height', $(".now-current").height());
 
     // dummy!
-    addMap(30, -118);
+    //addMap(30, -118);
     $(".content").hide();
 });
 
@@ -179,7 +179,18 @@ $(window).bind('load', function () {
         if ((typeof this.naturalWidth != "undefined" &&
             this.naturalWidth == 0 )
             || this.readyState == 'uninitialized') {
-            //$(this).attr('src', 'missing.jpg');
+            $(this).attr('src', 'static/images/missing.jpg');
+            $(this).html("<span>Image Not Found</span>")
+        }
+    });
+});
+
+$("#now-map").bind('load', function () {
+    $('img').each(function () {
+        if ((typeof this.naturalWidth != "undefined" &&
+            this.naturalWidth == 0 )
+            || this.readyState == 'uninitialized') {
+            $(this).attr('src', 'static/images/missing.jpg');
             $(this).html("<span>Image Not Found</span>")
         }
     });

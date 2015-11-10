@@ -114,9 +114,9 @@ function putNowTabValues(data) {
 
     // fb params:
     fbOk = true;
-    fbParams['og:title'] = "Current Weather in " + data['thisCity'] + ", " + data['thisState'];
-    fbParams['og:description'] = data['currently']['summary'] + ", " + parseInt(data['currently']['temperature']) + "\xB0" + (data['thisUnit'] == "us" ? "F" : "C");
-    fbParams['og:image'] = "http://cs-server.usc.edu:45678/hw/hw8/images/" + getIcon(data['currently']["icon"]);
+    fbParams['name'] = "Current Weather in " + data['thisCity'] + ", " + data['thisState'];
+    fbParams["description"] = data['currently']['summary'] + ", " + parseInt(data['currently']['temperature']) + "\xB0" + (data['thisUnit'] == "us" ? "F" : "C");
+    fbParams['picture'] = "http://cs-server.usc.edu:45678/hw/hw8/images/" + getIcon(data['currently']["icon"]);
 
     $(".now-current .now-precipitation").html(findPrecipitation(parseFloat(data['currently']['precipIntensity']), data['thisUnit']));
     $(".now-current .now-rainchance span").html(parseInt(data["currently"]["precipProbability"]) * 100);
