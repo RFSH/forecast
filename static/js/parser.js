@@ -118,11 +118,11 @@ function putNowTabValues(data) {
     fbParams["description"] = data['currently']['summary'] + ", " + parseInt(data['currently']['temperature']) + "\xB0" + (data['thisUnit'] == "us" ? "F" : "C");
     fbParams['picture'] = "http://cs-server.usc.edu:45678/hw/hw8/images/" + getIcon(data['currently']["icon"]);
 
-    $(".now-current .now-precipitation").html(findPrecipitation(parseFloat(data['currently']['precipIntensity']).toFixed(2), data['thisUnit']));
+    $(".now-current .now-precipitation").html(findPrecipitation(parseFloat(data['currently']['precipIntensity']), data['thisUnit']));
     $(".now-current .now-rainchance span").html(parseInt(data["currently"]["precipProbability"]) * 100);
-    $(".now-current .now-wind .num").html(parseFloat(data["currently"]["windSpeed"]).toFixed(2));
-    $(".now-current .now-dew .num").html(parseFloat(data["currently"]["dewPoint"]).toFixed(2));
-    $(".now-current .now-visibility .num").html(parseFloat(data["currently"]["visibility"]).toFixed(2));
+    $(".now-current .now-wind .num").html(parseFloat(data["currently"]["windSpeed"]));
+    $(".now-current .now-dew .num").html(parseFloat(data["currently"]["dewPoint"]));
+    $(".now-current .now-visibility .num").html(parseFloat(data["currently"]["visibility"]));
     $(".now-current .now-humidity span").html(parseInt(data["currently"]["humidity"]));
     $(".now-current .now-sunrise").html(moment(new Date(data['daily']['data'][0]['sunriseTime'] * 1000)).format("hh:mm A"));
     $(".now-current .now-sunset").html(moment(new Date(data['daily']['data'][0]['sunsetTime'] * 1000)).format("hh:mm A"));
@@ -142,7 +142,7 @@ function createHourRow(data, index) {
         row += "<td>N/A</td>";
     }
     row += "<td>" + (data['cloudCover'] != undefined ? parseInt(parseFloat(data['cloudCover']) * 100) : "N/A") + "%</td>";
-    row += "<td>" + (data['temperature'] != undefined ? parseFloat(data['temperature']).toFixed(2) : "N/A") + "</td>";
+    row += "<td>" + (data['temperature'] != undefined ? parseFloat(data['temperature']) : "N/A") + "</td>";
     row += '<td><a role="button" data-toggle="collapse" href="#tab-day-details-' + index + '">';
     row += '<i class="glyphicon glyphicon-plus"></i></td></tr>';
 
@@ -188,8 +188,8 @@ function createDayCard(data, index, city) {
     card += '</div><div class="modal-body">';
     if (data['icon']) {
         card += "<img width='250' height='220' src='" + imagesSRC + getIcon(data['icon']) + "'";
-        card += " alt='" + imagesSRC + getIcon(data['icon']) + "'";
-        card += " title='" + imagesSRC + getIcon(data['icon']) + "'";
+        card += " alt='" + (data['summary'] ? data['summary'] : "") + "'";
+        card += " title='" + (data['summary'] ? data['summary'] : "") + "'";
         card += "/>";
     }
     card += '<div><h3>' + day + ': <span class="orange">' + (data['summary'] ? data['summary'] : "N/A") + '</span></h3></div>';

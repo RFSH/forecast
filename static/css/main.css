@@ -54,6 +54,9 @@ body {
   text-align: center;
   margin-bottom: 0.5em;
 }
+.top .search-form {
+  padding: 0;
+}
 .top .search-form form {
   -webkit-border-radius: 0.2em;
   -moz-border-radius: 0.2em;

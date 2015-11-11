@@ -146,8 +146,6 @@ jQuery(function () {
 
     $(".now-clouds").css('height', $(".now-current").height());
 
-    // dummy!
-    //addMap(30, -118);
     $(".content").hide();
 });
 
