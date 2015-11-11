@@ -1,12 +1,12 @@
 // ----------------------- Map ----------------------------
 var map;
+var coor_from = new OpenLayers.Projection("EPSG:4326");
+var coor_to = new OpenLayers.Projection("EPSG:900913");
+
 function addMap(lat, lon) {
     $("#now-map").html("");
 
     var center = new OpenLayers.LonLat(lon, lat);
-
-    var coor_from = new OpenLayers.Projection("EPSG:4326");
-    var coor_to = new OpenLayers.Projection("EPSG:900913");
     center.transform(coor_from, coor_to);
 
     map = new OpenLayers.Map("now-map", {numZoomLevels: 2});
@@ -33,12 +33,14 @@ function addMap(lat, lon) {
     );
     map.addLayers([mapnik, layer_precipitation, layer_cloud]);
     map.setCenter(center, 9);
+
+    $("img").error(function () {
+        $(this).attr('src', 'static/images/missing.jpg');
+    });
 }
 
 function changeMapCenter(lat, lon) {
     var lonlat = new OpenLayers.LonLat(lon, lat);
-    var coor_from = new OpenLayers.Projection("EPSG:4326");
-    var coor_to = new OpenLayers.Projection("EPSG:900913");
     lonlat.transform(coor_from, coor_to);
     map.setCenter(lonlat, 9);
 }
@@ -71,7 +73,6 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 function addFBPost() {
-    console.log(fbParams);
     if (fbOk) {
         FB.ui(fbParams, function (response) {
             if (response != undefined && response != null && !response.error_message) {
@@ -167,13 +168,6 @@ function show_message(title, content, type) {
     alert(content);
 }
 
-// Getting rid of console messages
-if (typeof(console) === 'undefined') {
-    var console = {};
-    console.log = console.error = console.info = console.debug = console.warn = console.trace = console.dir = console.dirxml = console.group = console.groupEnd = console.time = console.timeEnd = console.assert = console.profile = function () {
-    };
-}
-
 // Showing something instead of images
 $(window).bind('load', function () {
     $('img').each(function () {
@@ -192,13 +186,21 @@ $("#now-map").bind('load', function () {
             this.naturalWidth == 0 )
             || this.readyState == 'uninitialized') {
             $(this).attr('src', 'static/images/missing.jpg');
-            $(this).html("<span>Image Not Found</span>")
         }
     });
 });
 
+$("img").error(function () {
+    $(this).attr('src', 'static/images/missing.jpg');
+});
 
-//---------------------- details table width
+$(function () {
+    $(".olImageLoadError").initialize(function () {
+        $(this).attr('src', 'static/images/missing.jpg');
+    });
+});
+
+//---------------------- details table width -------------
 $(window).resize(function () {
     $(".tab-day-row-collapse td .well").css('width', $("#tab-day").width());
 
