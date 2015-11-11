@@ -180,19 +180,16 @@ $(window).bind('load', function () {
     });
 });
 
-$("#now-map").bind('load', function () {
-    $('img').each(function () {
-        if ((typeof this.naturalWidth != "undefined" &&
-            this.naturalWidth == 0 )
-            || this.readyState == 'uninitialized') {
-            $(this).attr('src', 'static/images/missing.jpg');
-        }
-    });
-});
 
-$("img").error(function () {
-    $(this).attr('src', 'static/images/missing.jpg');
-});
+//$("img").error(function () {
+//    $(this).attr('src', 'static/images/missing.jpg');
+//}).initialize(function () {
+//    if ((typeof this.naturalWidth != "undefined" &&
+//        this.naturalWidth == 0 )
+//        || this.readyState == 'uninitialized') {
+//        $(this).attr('src', 'static/images/missing.jpg');
+//    }
+//});
 
 $(function () {
     $(".olImageLoadError").initialize(function () {
