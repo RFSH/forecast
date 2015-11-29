@@ -107,7 +107,7 @@ jQuery(function () {
                     if (data['op_status'] == 'success') {
                         tdata = data;
 
-                        moment.tz.setDefault(data["timezone"]);
+                        //moment.tz.setDefault(data["timezone"]);
 
                         $(".content").show();
 

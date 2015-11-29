@@ -124,15 +124,15 @@ function putNowTabValues(data) {
     $(".now-current .now-dew .num").html(parseFloat(data["currently"]["dewPoint"]));
     $(".now-current .now-visibility .num").html(parseFloat(data["currently"]["visibility"]));
     $(".now-current .now-humidity span").html(parseInt(data["currently"]["humidity"]));
-    $(".now-current .now-sunrise").html(moment(new Date(data['daily']['data'][0]['sunriseTime'] * 1000)).format("hh:mm A"));
-    $(".now-current .now-sunset").html(moment(new Date(data['daily']['data'][0]['sunsetTime'] * 1000)).format("hh:mm A"));
+    $(".now-current .now-sunrise").html(moment.tz(new Date(data['daily']['data'][0]['sunriseTime'] * 1000), data["timezone"]).format("hh:mm A"));
+    $(".now-current .now-sunset").html(moment.tz(new Date(data['daily']['data'][0]['sunsetTime'] * 1000), data["timezone"]).format("hh:mm A"));
 
 
 }
 
 function createHourRow(data, index) {
     var row = "<tr>";
-    row += "<td>" + (data['time'] != undefined ? moment(new Date(data['time'] * 1000)).format("hh:mm A") : "N/A") + "</td>";
+    row += "<td>" + (data['time'] != undefined ? moment.tz(new Date(data['time'] * 1000), data["timezone"]).format("hh:mm A") : "N/A") + "</td>";
     if (data['icon']) {
         row += "<td><img width='40' height='40' src='" + imagesSRC + getIcon(data['icon']) + "'";
         row += " alt='" + (data['summary'] ? data['summary'] : "") + "'";
@@ -161,8 +161,8 @@ function createHourRow(data, index) {
 
 function createDayCard(data, index, city) {
 
-    var date = (data['time'] ? moment(new Date(data['time'] * 1000)).format("MMM D") : "N/A");
-    var day = (data['time'] ? moment(new Date(data['time'] * 1000)).format("dddd") : "N/A");
+    var date = (data['time'] ? moment.tz(new Date(data['time'] * 1000), data["timezone"]).format("MMM D") : "N/A");
+    var day = (data['time'] ? moment.tz(new Date(data['time'] * 1000), data["timezone"]).format("dddd") : "N/A");
 
     var card = '<div class="col-lg-1 col-md-1 col-xs-11 col-sm-11 day-card day-card-' + index + '" data-toggle="modal" ';
     card += 'data-target="#show-details-modal-' + index + '" >';
@@ -195,11 +195,11 @@ function createDayCard(data, index, city) {
     card += '<div><h3>' + day + ': <span class="orange">' + (data['summary'] ? data['summary'] : "N/A") + '</span></h3></div>';
     card += '<div class="row"><div class="col-md-4 col-xs-12 col-sm-12">';
     card += '<h4>Sunrise Time</h4>';
-    card += '<div>' + (data['sunriseTime'] != undefined ? moment(new Date(data['sunriseTime'] * 1000)).format("hh:mm A") : "N/A") + '</div>';
+    card += '<div>' + (data['sunriseTime'] != undefined ? moment.tz(new Date(data['sunriseTime'] * 1000), data["timezone"]).format("hh:mm A") : "N/A") + '</div>';
     card += '<h4>Wind Speed</h4>';
     card += '<div>' + (data['windSpeed'] != undefined ? data['windSpeed'] : "N/A") + '<span class="speed-unit"></span></div></div>';
     card += '<div class="col-md-4 col-xs-12 col-sm-12"><h4>Sunset Time</h4>';
-    card += '<div>' + (data['sunsetTime'] != undefined ? moment(new Date(data['sunsetTime'] * 1000)).format("hh:mm A") : "N/A") + '</div>';
+    card += '<div>' + (data['sunsetTime'] != undefined ? moment.tz(new Date(data['sunsetTime'] * 1000), data["timezone"]).format("hh:mm A") : "N/A") + '</div>';
     card += '<h4>Visibility</h4>';
     card += '<div>' + (data['visibility'] != undefined ? data['visibility'] + "<span class='distance-unit'></span>" : "N/A") + "</div></div>";
     card += '<div class="col-md-4 col-xs-12 col-sm-12"><h4>Humidity</h4>';
