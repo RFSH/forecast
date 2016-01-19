@@ -99,7 +99,6 @@ function findPrecipitation(pre, unit) {
     } else {
         return "Heavy";
     }
-
 }
 
 function putNowTabValues(data) {
