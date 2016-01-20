@@ -115,7 +115,7 @@ function putNowTabValues(data) {
     fbOk = true;
     fbParams['name'] = "Current Weather in " + data['thisCity'] + ", " + data['thisState'];
     fbParams["description"] = data['currently']['summary'] + ", " + parseInt(data['currently']['temperature']) + "\xB0" + (data['thisUnit'] == "us" ? "F" : "C");
-    fbParams['picture'] = "http://cs-server.usc.edu:45678/hw/hw8/images/" + getIcon(data['currently']["icon"]);
+    fbParams['picture'] = "http://forecast.arefsh.me/static/images/" + getIcon(data['currently']["icon"]);
 
     $(".now-current .now-precipitation").html(findPrecipitation(parseFloat(data['currently']['precipIntensity']), data['thisUnit']));
     $(".now-current .now-rainchance span").html(parseInt(data["currently"]["precipProbability"]) * 100);
