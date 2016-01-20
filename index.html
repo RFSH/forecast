@@ -58,9 +58,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.4.1/moment-timezone-with-data-2010-2020.min.js"></script>
     <script src="http://openlayers.org/api/OpenLayers.js"></script>
-    <script src="static/js/jquery.initialize.js"></script>
-    <script src="static/js/parser.js"></script>
-    <script src="static/js/script.js"></script>
+    <!--<script src="static/js/jquery.initialize.js"></script>-->
+    <!--<script src="static/js/parser.js"></script>-->
+    <script src="static/js/script.min.js"></script>
 
 </head>
 <body>
@@ -169,11 +169,9 @@
                     </div>
                     <div class="cf"></div>
                     <div class="credits">
-                        <span>Powered by </span>
-                        <a target="_blank" href="http://forecast.io">
-                            <img height="60" width="120"
-                                 src='static/images/forecast_logo.png'/>
-                        </a>
+                        <button type="button" class="btn-success btn" data-toggle="modal"
+                                data-target="#about-modal">Find Out More!
+                        </button>
                     </div>
                     <div class="cf"></div>
                 </div>
@@ -341,6 +339,54 @@
     </div>
 
 
+</div>
+
+
+<div id="about-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">About Weather Forecast</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="about-list">
+                    <li>
+                        <i class="glyphicon glyphicon-ok green"></i>
+                        This project was part of <a target="_blank" title="Web Technologies"
+                                                    href="http://cs-server.usc.edu:45678/">Web Technologies</a> course
+                        at USC (Fal 2015).
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-ok green"></i>
+                        Its source code is
+                        <a target="_blank" title="Weather Forecast Source Code"
+                           href="https://github.com/RFSH/forecast/">here</a>.
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-ok green"></i>
+                        The android version of this website is
+                        <a target="_blank" title="Weather Forecast Android Source Code"
+                           href="https://github.com/RFSH/forecast-android/">here</a>.
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-ok green"></i>
+                        Powered by <a target="_blank" href="http://forecast.io">Forecast.io</a>
+                    </li>
+                    <li>
+                        <i class="glyphicon glyphicon-ok green"></i>
+                        Created by <a target="_blank"
+                                      href="http://arefsh.me" title="Aref Shafaeibejestan">Aref</a>.
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 </body>
